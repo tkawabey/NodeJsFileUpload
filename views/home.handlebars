@@ -1,0 +1,21 @@
+<form action="/" method="POST" enctype="multipart/form-data">
+  <h3>画像をアップロードする</h3>
+  <input type="file" name="sampleFile" accept="image/*" />
+  <input type="submit" class="btn btn-primary" />
+</form>
+
+<div>
+　{{!DBから取得したレコードセットと同じイメージで実装します}}
+  {{#each rows}}
+    <p>↓に保存された画像が出力されます</p>
+    {{! imageフィールドの値を表示します }}
+    {{#if this.image_name}}
+      <img src={{this.image_name}} alt={{this.image_name}} />
+    {{else}}
+      <img src="" alt="" />
+    {{/if}}
+    <p>
+      {{this.image_name}}
+    </p>
+  {{/each}}
+</div>
